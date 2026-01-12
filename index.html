@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build AI Apps Fast | GPT Engineer & Full-Stack AI Builder 2025</title>
+    <meta name="description" content="Build production-ready web apps in minutes with AI. The fastest GPT-powered full-stack builder. No coding required. Ship your startup idea today.">
+    <meta name="keywords" content="AI app builder, GPT engineer, no-code AI, full-stack AI, build apps fast, AI web development, startup tools 2025">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="BuildFast Labs">
+    <link rel="canonical" href="https://tencent-source.github.io/buildfast-ai/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Build AI Apps Fast | GPT Engineer & Full-Stack AI Builder">
+    <meta property="og:description" content="Build production-ready web apps in minutes with AI. Ship your startup idea today.">
+    <meta property="og:url" content="https://tencent-source.github.io/buildfast-ai/">
+    <meta property="og:image" content="https://tencent-source.github.io/buildfast-ai/og-image.png">
+    <meta property="og:site_name" content="BuildFast AI">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Build AI Apps Fast | GPT Engineer 2025">
+    <meta name="twitter:description" content="Build production-ready web apps in minutes with AI.">
+    <meta name="twitter:image" content="https://tencent-source.github.io/buildfast-ai/og-image.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Lovable AI Builder",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "2847"
+        },
+        "description": "Build production-ready web apps in minutes using AI. The fastest GPT-powered full-stack builder."
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: rgba(20, 20, 30, 0.8);
+            --accent-red: #ff2d55;
+            --accent-gold: #ffd700;
+            --accent-cyan: #00f5ff;
+            --accent-pink: #ff6b9d;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --glow-red: 0 0 30px rgba(255, 45, 85, 0.5);
+            --glow-gold: 0 0 30px rgba(255, 215, 0, 0.5);
+            --glow-cyan: 0 0 30px rgba(0, 245, 255, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(255, 45, 85, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .chinese-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30L30 0z' fill='none' stroke='%23ff2d55' stroke-width='0.3' opacity='0.1'/%3E%3C/svg%3E");
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.8);
+            border-bottom: 1px solid rgba(255, 45, 85, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-red), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-nav {
+            background: linear-gradient(135deg, var(--accent-red), var(--accent-pink));
+            color: white;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: var(--glow-red);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 50px rgba(255, 45, 85, 0.7);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--accent-gold);
+            margin-bottom: 32px;
+        }
+
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 50%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-tagline {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--accent-red);
+            margin-bottom: 24px;
+            text-shadow: var(--glow-red);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, var(--accent-red), var(--accent-pink));
+            color: white;
+            padding: 18px 48px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--glow-red);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 0 60px rgba(255, 45, 85, 0.8);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: var(--accent-cyan);
+            padding: 18px 48px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid var(--accent-cyan);
+            transition: all 0.3s ease;
+        }
+
+        .cta-secondary:hover {
+            background: rgba(0, 245, 255, 0.1);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            color: var(--accent-gold);
+            font-size: 1rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 45, 85, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-red), var(--accent-gold), var(--accent-cyan));
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-red);
+            box-shadow: var(--glow-red);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(255, 45, 85, 0.2), rgba(255, 215, 0, 0.2));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+        }
+
+        .testimonials {
+            background: var(--bg-secondary);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 245, 255, 0.2);
+            border-radius: 20px;
+            padding: 32px;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 24px;
+            color: var(--text-secondary);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent-red), var(--accent-cyan));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .author-info strong {
+            display: block;
+        }
+
+        .author-info span {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .final-cta {
+            text-align: center;
+            padding: 120px 24px;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, rgba(255, 45, 85, 0.1) 100%);
+        }
+
+        .final-cta h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        .final-cta .section-subtitle {
+            margin-bottom: 24px;
+        }
+
+        .final-cta p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        footer {
+            background: var(--bg-secondary);
+            padding: 40px 24px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 45, 85, 0.2);
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .decoration {
+            position: absolute;
+            font-size: 12rem;
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: -1;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+        }
+
+        .decoration-left {
+            left: -5%;
+            top: 15%;
+            transform: rotate(-15deg);
+        }
+
+        .decoration-right {
+            right: -5%;
+            bottom: 15%;
+            transform: rotate(15deg);
+        }
+
+        .lantern {
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            background: linear-gradient(180deg, var(--accent-red) 0%, #aa0022 100%);
+            border-radius: 50% 50% 45% 45%;
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        .lantern::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 10px;
+            background: var(--accent-gold);
+            border-radius: 5px 5px 0 0;
+        }
+
+        .lantern-1 { top: 20%; left: 5%; }
+        .lantern-2 { top: 40%; right: 8%; }
+        .lantern-3 { bottom: 30%; left: 10%; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .stats-bar { gap: 24px; }
+            .stat-number { font-size: 1.8rem; }
+            .cta-primary, .cta-secondary { width: 100%; justify-content: center; }
+            .lantern { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    <div class="gradient-bg"></div>
+    <div class="chinese-pattern"></div>
+
+    <div class="lantern lantern-1"></div>
+    <div class="lantern lantern-2"></div>
+    <div class="lantern lantern-3"></div>
+
+    <header>
+        <div class="container header-content">
+            <a href="/" class="logo">BUILDFAST</a>
+            <a href="https://lovable.dev/?via=build-fast" class="cta-nav" target="_blank" rel="noopener">Start Free →</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="decoration decoration-left">AI</div>
+            <div class="decoration decoration-right">BUILD</div>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    #1 AI App Builder 2025
+                </div>
+                <h1>Build Full-Stack Apps<br>With AI in Minutes</h1>
+                <p class="hero-tagline">Speed · Power · Simplicity</p>
+                <p>Stop writing boilerplate. Let GPT-powered AI build your entire web application from a simple prompt. Production-ready code, deployed instantly.</p>
+                <div class="cta-group">
+                    <a href="https://lovable.dev/?via=build-fast" class="cta-primary" target="_blank" rel="noopener">
+                        Start Building Free 🚀
+                    </a>
+                    <a href="#features" class="cta-secondary">See How It Works</a>
+                </div>
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <div class="stat-number">50K+</div>
+                        <div class="stat-label">Apps Built</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10x</div>
+                        <div class="stat-label">Faster Development</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4.9★</div>
+                        <div class="stat-label">User Rating</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features">
+            <div class="container">
+                <div class="section-title">
+                    <p class="section-subtitle">Core Features</p>
+                    <h2>Why Developers Choose This</h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Instant Full-Stack</h3>
+                        <p>Generate complete React, Next.js, or Vue applications with backend, database, and authentication in seconds.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🧠</div>
+                        <h3>GPT-4 Powered</h3>
+                        <p>Leverages the latest AI models to understand complex requirements and produce clean, maintainable code.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🚀</div>
+                        <h3>One-Click Deploy</h3>
+                        <p>Deploy to production with a single click. Automatic CI/CD, SSL, and global CDN included.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h3>Beautiful UI</h3>
+                        <p>AI-generated designs that look professional. Tailwind CSS, shadcn/ui, and modern design patterns built-in.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔐</div>
+                        <h3>Auth & Database</h3>
+                        <p>Supabase integration for authentication, real-time database, and storage. Zero configuration needed.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💎</div>
+                        <h3>Export Anytime</h3>
+                        <p>Own your code. Export to GitHub, download the source, or connect your own repository.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <p class="section-subtitle">Testimonials</p>
+                    <h2>Loved by Builders Worldwide</h2>
+                </div>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"I built my entire SaaS MVP in 2 hours. What would have taken weeks of development was done before lunch."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JC</div>
+                            <div class="author-info">
+                                <strong>James Chen</strong>
+                                <span>Startup Founder</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"The code quality is surprisingly good. Clean React components, proper TypeScript, and it just works."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SK</div>
+                            <div class="author-info">
+                                <strong>Sarah Kim</strong>
+                                <span>Senior Developer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"As a designer, I can now ship my own ideas without waiting for developers. Game changer."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MR</div>
+                            <div class="author-info">
+                                <strong>Marco Rossi</strong>
+                                <span>UX Designer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta">
+            <div class="container">
+                <p class="section-subtitle">Get Started Now</p>
+                <h2>Ready to Build Faster?</h2>
+                <p>Join thousands of developers and founders who are shipping products 10x faster with AI.</p>
+                <a href="https://lovable.dev/?via=build-fast" class="cta-primary" target="_blank" rel="noopener">
+                    Start Building Free 🚀
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 BuildFast Labs. This page contains affiliate links.</p>
+        </div>
+    </footer>
+</body>
+</html>
